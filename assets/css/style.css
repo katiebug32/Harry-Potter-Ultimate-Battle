@@ -1,0 +1,65 @@
+html { 
+    background: url(../images/hpimg1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: harrypotter;
+    src: url(../css/HARRYP__.TTF);
+}
+
+header h1 {
+    text-align: center;
+    font-family: harrypotter;
+    font-size: 4rem;
+}
+
+h2 {
+    font-family: harrypotter;
+}
+
+body {
+    background-color: transparent;
+}
+
+.card {
+    margin: .5rem;
+
+}
+
+.card-body {
+    height: 2rem;
+    padding: 0;
+    text-align: center;
+    align-content: center;
+    font-family: harrypotter;
+    font-size: 1.3rem;
+}
+
+.btn {
+    display: none;
+    margin: 2rem;
+    font-family: harrypotter;
+    font-size: 2rem;
+    text-align: center;
+    width: auto;
+    padding: .5rem, .2rem;
+}
+
+#battleText {
+    font-family: harrypotter;
+    font-size: 2rem;
+
+}
+
+#vs {
+    font-family: harrypotter;
+    text-align: center;
+    margin: 2rem;
+    padding-top: 2rem;
+    color: white;
+
+}

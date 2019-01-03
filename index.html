@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Harry Potter RPG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+
+    <!-- <style type="text/css">* {cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), auto !important;}</style><a href="http://www.cursors-4u.com/cursor/2011/02/07/harry-potter-magical-wand.html" target="_blank" title="Harry Potter Magical Wand"><img src="http://cur.cursors-4u.net/cursor.png" border="0" alt="Harry Potter Magical Wand" style="position:absolute; top: 0px; right: 0px;" /></a> -->
+</head>
+<body>
+
+    <header>
+        <h1>
+            Harry Potter's Ultimate Battle
+        </h1>
+    </header>
+    
+    <!-- //*character boxes and rows*// -->
+    <div class="container">
+
+        <!-- use this id to select player character -->
+        <h2 id="playText"></h2>
+        <div class="row" id="selectChar"> 
+            <div class="card" id="harry" style="width: 8rem;">
+                <div class="card-body">
+                    <p class="card-text">Harry Potter</p>
+                </div>
+                <img src="assets/images/harryimg.jpeg" class="card-img-top" alt="harrypotter">
+                <div class="card-body">
+                  <p class="card-text">HP: <span id="harryHP"></span></p>
+                </div>
+            </div>
+            <div class="card" id="snape" style="width: 8rem;">
+                <div class="card-body">
+                    <p class="card-text">Snape</p>
+                </div>
+                <img src="assets/images/snapeimg.jpeg" class="card-img-top" alt="snape">
+                <div class="card-body">
+                  <p class="card-text">HP: <span id="snapeHP"></span></p>
+                </div>
+              </div>
+              <div class="card" id="draco" style="width: 8rem;">
+                <div class="card-body">
+                    <p class="card-text">Draco Malfoy</p>
+                </div>
+                <img src="assets/images/dracomalfoy.jpeg" class="card-img-top" alt="malfoy">
+                <div class="card-body">
+                  <p class="card-text">HP: <span id="dracoHP"></span></p>
+                </div>
+              </div>
+              <div class="card" id="hermione" style="width: 8rem;">
+                    <div class="card-body">
+                        <p class="card-text">Hermione</p>
+                    </div>
+                    <img src="assets/images/hermione2img.jpeg" class="card-img-top" alt="voldemort">
+                    <div class="card-body">
+                      <p class="card-text">HP: <span id="hermioneHP"></span></p>
+                    </div>
+                  </div>
+              <div class="card" id="voldemort" style="width: 8rem;">
+                <div class="card-body">
+                    <p class="card-text">Voldemort</p>
+                </div>
+                <img src="assets/images/voldemort.jpg" class="card-img-top" alt="voldemort">
+                <div class="card-body">
+                  <p class="card-text">HP: <span id="voldemortHP"></span></p>
+                </div>
+              </div>
+        </div> 
+        
+        <br>
+
+        <!-- use this id to move selected characters -->
+        <div class="row" id="battleZone"> 
+            <div id="playerChar">
+            </div>
+            <div>
+                <h2 id="vs">
+                </h2>
+            </div>
+            <div id="opponentChar">
+            </div>
+             <div>
+        <!-- fight button area -->
+            <button type="button" class="btn btn-light">Battle!</button>
+            <!-- text section to show current battle stats ?? -->
+            <p id="battleText"></p>
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
