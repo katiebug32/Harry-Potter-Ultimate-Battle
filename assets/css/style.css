@@ -11,6 +11,10 @@ html {
     src: url(../css/HARRYP__.TTF);
 }
 
+.container {
+    margin: 2% 10%;
+}
+
 header h1 {
     text-align: center;
     font-family: harrypotter;
@@ -25,9 +29,17 @@ body {
     background-color: transparent;
 }
 
+.selectChar {
+    display: inline;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .card {
     margin: .5rem;
-
 }
 
 .card-body {
@@ -40,7 +52,7 @@ body {
 }
 
 .btn {
-    display: none;
+    /* display: none; */
     margin: 2rem;
     margin-top: 0;
     font-family: harrypotter;
@@ -49,18 +61,25 @@ body {
     width: auto;
     padding: .5rem, .2rem;
 }
+ 
+#fightButton {
+    display: none;
+}
+
+#textArea {
+    /* margin-left: 2rem; */
+    /* padding-top: 2rem; */
+    display: flex;
+    justify-content: center;
+}
 
 #battleText1,
 #battleText2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
     color: white;
+    margin-right: .5rem;
 
-
-}
-#textArea {
-    padding-top: 2rem;
-    margin: 2rem;
 }
 
 #vs {
@@ -68,6 +87,6 @@ body {
     text-align: center;
     margin: 2rem;
     padding-top: 2rem;
-    color: white;
+    color: rgb(163, 53, 53);
 
 }
