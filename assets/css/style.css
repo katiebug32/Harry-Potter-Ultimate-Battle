@@ -29,17 +29,26 @@ body {
     background-color: transparent;
 }
 
-.selectChar {
-    display: inline;
-}
 
 .row {
     display: flex;
     justify-content: space-evenly;
 }
 
+#selectChar {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#battleZone {
+    display: flex;
+    justify-content: center;
+}
+
 .card {
     margin: .5rem;
+    box-shadow: 8px 8px rgb(102, 106, 124);
+    border: 6px solid rgba(12, 12, 12, 0.35);
 }
 
 .card-body {
@@ -75,10 +84,12 @@ body {
 
 #battleText1,
 #battleText2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
+    font-family: 'Oranienbaum', serif;
+    font-size: 1.4rem;
     color: white;
     margin-right: .5rem;
+    text-shadow:1px 1px 2px black, 0 0 25px rgb(58, 58, 59), 0 0 5px rgb(38, 38, 39);
+    
 
 }
 
@@ -86,7 +97,8 @@ body {
     font-family: harrypotter;
     text-align: center;
     margin: 2rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     color: rgb(163, 53, 53);
-
+    font-size: 3rem;
+    text-shadow:1px 1px 2px white;
 }

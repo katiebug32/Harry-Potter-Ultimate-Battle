@@ -5,7 +5,7 @@ var selectedFighter = null;
 var selectedOpponent = null;
 var defeatCount = 0;
 
-function createResetButton() {
+function createResetButton() { // creates the New Game button
     var resetBtn = $("<button>");
     resetBtn.addClass("btn btn-info");
     resetBtn.attr('id', 'reset');
@@ -13,25 +13,24 @@ function createResetButton() {
     resetBtn.css("display", "inline");
     resetBtn.appendTo("#vs");
 
-    $("#reset").click(function (newGame) {
-        characters = getCharacters();
-        updateHP();
-        $(".card").css("visibility", "visible");
-        $("#" + selectedOpponentID).appendTo("#selectChar");
-        $("#" + selectedFighterID).appendTo("#selectChar");
+    $("#reset").click(function (newGame) { // resets game play - messy, surely can be optimized??
+        characters = getCharacters(); //resets character stats
+        updateHP(); //resets display of hp
+        $(".card").css("visibility", "visible"); //defeated characters show again
+        $("#" + selectedOpponentID).appendTo("#selectChar"); //moves prev played characters to top div
+        $("#" + selectedFighterID).appendTo("#selectChar"); // same 
         selectedFighterID = null;
         selectedOpponentID = null;
         defeatCount = 0;
         $("#battleText1").text("");
         $("#battleText2").text("");
-        $(this).remove();
         $("#playText").text("Choose a character:");
-
+        $(this).remove(); // removes the New Game button
     })
 }
 
 
-function getCharacters() {
+function getCharacters() { //starting values for characters
     return {
         Harry: {
             healthPoints: 100,
@@ -65,40 +64,8 @@ function getCharacters() {
         }
     }
 }
-// var characters = getCharacters();
-var characters = {
-        Harry: {
-            healthPoints: 100,
-            attackPower: 8,
-            initialAttackPower: 8,
-            counterAttack: 17,
-        },
-        Snape: {
-            healthPoints: 125,
-            attackPower: 5,
-            initialAttackPower: 5,
-            counterAttack: 12,
-        },
-        Draco: {
-            healthPoints: 60,
-            attackPower: 11,
-            initialAttackPower: 12,
-            counterAttack: 25,
-        },
-        Hermione: {
-            healthPoints: 85,
-            attackPower: 10,
-            initialAttackPower: 10,
-            counterAttack: 23,
-        },
-        Voldemort: {
-            healthPoints: 150,
-            attackPower: 4,
-            initialAttackPower: 4,
-            counterAttack: 10,
-        }
-    
-}
+var characters = getCharacters();  //reset all character values
+
 
 
 function updateHP() {
@@ -110,10 +77,7 @@ function updateHP() {
 }
 
 
-
-
-//game start function//
-
+//game start fresh page//
 updateHP();
 $("#playText").text("Choose a character:");
 
@@ -126,9 +90,6 @@ $(".card").click(function (selectCharacter) {
     if (selectedFighterID === null) {
         $(this).appendTo("#playerChar"); //moves player down
         selectedFighterID = $(this).attr("id"); //gets id of the selected card
-        // selectedFighter = $(this);
-        // var fighterId = $(this).attr('id');
-        // console.log(fighterId);
         selectedFighter = characters[selectedFighterID]; //gets object data for that corresponding card
         console.log(selectedFighter);
 
@@ -150,10 +111,10 @@ $("#fightButton").click(function (battle) {
     $("#battleText1").text("");
     $("#battleText2").text("");
     if ((selectedFighter.healthPoints > 0) && (selectedOpponent.healthPoints > 0)) {
-
+        
         selectedOpponent.healthPoints = selectedOpponent.healthPoints - selectedFighter.attackPower;
-        // $(selectedFighterID).effect( "shake" );
-        // $(selectedOpponentID).effect( "shake" );
+        // $("#" + selectedFighterID).effect( "shake" );
+        // $("#" + selectedOpponentID).effect( "shake" );
         $("#battleText1").text("You attacked " + selectedOpponentID + " for " + selectedFighter.attackPower + " damage.");
         if (selectedOpponent.healthPoints < 1) {
             // $("#" + selectedOpponentID).effect( "explode" );
@@ -162,7 +123,7 @@ $("#fightButton").click(function (battle) {
             $("#battleText2").text("You defeated " + selectedOpponentID + ". Select another opponent.");
             selectedOpponentID = null;
 
-            if (defeatCount === 4) {
+            if (defeatCount === 4) { // if player defeats all opponnets
                 $("#battleText1").text("You won! Would you like to play again?");
                 $("#battleText2").text("");
                 $("#fightButton").css("display", "none"); //hides battle button
@@ -182,21 +143,16 @@ $("#fightButton").click(function (battle) {
         updateHP();
 
         if (selectedFighter.healthPoints < 1) {
-            $("#battleText1").text("Game Over. " + selectedOpponentID + " beat you this time. Want to play again?");
+            selectedFighter.healthPoints = 0;
+            updateHP();
+            $("#battleText1").text("Game Over. You've been defeated this time. Want to play again?");
             $("#battleText2").text("");
             $("#fightButton").css("display", "none"); //hides battle button
             $("#vs").text(""); // removes VS text between battle cards
             createResetButton();
         }
 
-        // selectedFighter healthpoints increase by original/starting amount
     }
 
 })
 
-
-//reset everything here!!!//
-// $("#reset").click(){
-
-//     // gameRestart ();
-// }
