@@ -14,16 +14,17 @@ function createResetButton() { // creates the New Game button
     resetBtn.appendTo("#vs");
 
     $("#reset").click(function (newGame) { // resets game play - messy, surely can be optimized??
+        // $("#" + selectedFighterID).finish();
+        // $("#" + selectedOpponentID).finish();
         characters = getCharacters(); //resets character stats
         updateHP(); //resets display of hp
-        $(".card").css("visibility", "visible"); //defeated characters show again
         $("#" + selectedOpponentID).appendTo("#selectChar"); //moves prev played characters to top div
         $("#" + selectedFighterID).appendTo("#selectChar"); // same 
+        $(".card").css("display", "flex"); //all characters show/visible again
         selectedFighterID = null;
         selectedOpponentID = null;
         defeatCount = 0;
-        $("#battleText1").text("");
-        $("#battleText2").text("");
+        $("#battleText1, #battleText2").text("");
         $("#playText").text("Choose a character:");
         $(this).remove(); // removes the New Game button
     })
@@ -91,34 +92,35 @@ $(".card").click(function (selectCharacter) {
         $(this).appendTo("#playerChar"); //moves player down
         selectedFighterID = $(this).attr("id"); //gets id of the selected card
         selectedFighter = characters[selectedFighterID]; //gets object data for that corresponding card
-        console.log(selectedFighter);
-
         $("#playText").text("Choose an opponent:");
         $("#vs").text("VS"); // creates space and VS text between battle cards
     }
-    else if (selectedOpponentID === null) {
+    else if(selectedOpponentID === null) {
         $(this).appendTo("#opponentChar"); //moves opponent down
         selectedOpponentID = $(this).attr("id"); //gets id of the selected card
         selectedOpponent = characters[selectedOpponentID];  //gets object data for that corresponding card
         console.log(selectedOpponent);
-
         $("#fightButton").css("display", "inline");
         $("#playText").text("Ready, set, battle!");
+    }
+    else {
+        $("#selectChar").css("display", "none");
     }
 });
 
 $("#fightButton").click(function (battle) {
-    $("#battleText1").text("");
-    $("#battleText2").text("");
+    $("#battleText1, #battleText2").text("");
     if ((selectedFighter.healthPoints > 0) && (selectedOpponent.healthPoints > 0)) {
-        
         selectedOpponent.healthPoints = selectedOpponent.healthPoints - selectedFighter.attackPower;
         // $("#" + selectedFighterID).effect( "shake" );
         // $("#" + selectedOpponentID).effect( "shake" );
-        $("#battleText1").text("You attacked " + selectedOpponentID + " for " + selectedFighter.attackPower + " damage.");
+        $("#battleText1").text("You attacked " + selectedOpponentID + " for " + selectedFighter.attackPower + " damage. ");
         if (selectedOpponent.healthPoints < 1) {
-            // $("#" + selectedOpponentID).effect( "explode" );
-            $("#" + selectedOpponentID).appendTo("#selectChar").css("visibility", "hidden");
+            // $("#" + selectedOpponentID).effect( "explode", 1000 );
+            // $("#" + selectedFighterID).finish();
+            // $("#" + selectedOpponentID).finish();
+            $("#" + selectedOpponentID).appendTo("#selectChar").css("display", "none");
+            // $(".ui-effects-placeholder").remove();
             defeatCount++;
             $("#battleText2").text("You defeated " + selectedOpponentID + ". Select another opponent.");
             selectedOpponentID = null;

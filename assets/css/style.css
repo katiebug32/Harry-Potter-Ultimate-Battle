@@ -102,3 +102,60 @@ body {
     font-size: 3rem;
     text-shadow:1px 1px 2px white;
 }
+
+.ui-effects-wrapper {
+    display: inline-flex;
+  }
+
+@media screen and (max-width: 431px){
+
+.card {
+    transform: scale(.6);
+    margin: .2rem;
+}
+
+.container {
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+justify-content: center;
+margin: 0 auto;
+
+
+}
+#battleZone {
+    flex-wrap: nowrap;
+}
+
+#vs {
+    transform: scale(.6);
+    margin: .03rem;
+    padding: .02rem;
+}
+
+.btn {
+    transform: scale(.7);
+    margin: .03rem;
+}
+
+.row {
+    height: auto;
+
+}
+
+}
+@media screen and (min-width: 432px){
+    .card {
+        transform: scale(.9);
+    }
+    #vs {
+        transform: scale(.9);
+        margin: scale(.9);
+        padding: scale(.9);
+    }
+    
+    .btn {
+        transform: scale(.9);
+        margin: scale(.9);
+    }
+}
