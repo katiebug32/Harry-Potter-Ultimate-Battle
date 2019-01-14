@@ -23,7 +23,10 @@ header h1 {
 
 h2 {
     font-family: harrypotter;
+    display: flex;
+    justify-content: center;
 }
+
 
 body {
     background-color: transparent;
@@ -35,9 +38,10 @@ body {
     justify-content: space-evenly;
 }
 
+
 #selectChar {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 #battleZone {
